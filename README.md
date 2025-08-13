@@ -1,36 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+갓생러를 위한, 갓생러에 의한, 갓생러의 앱
 
-## Getting Started
+갓생을 꿈꾸는 당신을 위해 만들어졌습니다.
+매일의 루틴을 기록하고, 시간을 어떻게 사용했는지 한눈에 파악하세요.
+성장을 위한 모든 노력이 헛되지 않도록, 당신의 하루를 데이터로 보여줍니다.
 
-First, run the development server:
+루틴을 쌓아가고, 나의 시간을 온전히 통제하며
+더 나은 나를 만들어가는 모든 갓생러들의 필수 앱.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+이 앱과 함께, 당신의 갓생이 시작됩니다.
