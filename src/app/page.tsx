@@ -4,10 +4,15 @@ import ActivityStats from "@/components/ActivityStats";
 
 function HomePage() {
   return (
-    <main className="flex-1 p-4 flex flex-col items-center gap-4">
-      <CircularTimeline />
-      <ActivityInputForm />
-      <ActivityStats />
+    <main className="min-h-screen p-4 md:flex md:gap-4">
+      <section className="md:w-1/2 h-[calc(100vh-150px)] flex justify-center items-center">
+        <CircularTimeline />
+      </section>
+
+      <section className="md:w-1/2 flex flex-col gap-4">
+        <ActivityInputForm />
+        <ActivityStats />
+      </section>
     </main>
   );
 }
