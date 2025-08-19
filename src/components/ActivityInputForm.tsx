@@ -1,6 +1,6 @@
 function ActivityInputForm() {
   return (
-    <form className="w-full max-w-md bg-white p-4 rounded shadow space-y-2">
+    <form className="w-full bg-white p-4 rounded-2xl shadow-lg space-y-2 border-2">
       <input
         type="text"
         placeholder="활동 이름"
