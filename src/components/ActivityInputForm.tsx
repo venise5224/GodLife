@@ -1,14 +1,60 @@
-function ActivityInputForm() {
+"use client";
+
+import { useState } from "react";
+import { Activity } from "@/types/Activity";
+
+interface ActivityInputFormProps {
+  onAddActivity: (activity: Activity) => void;
+}
+
+function ActivityInputForm({ onAddActivity }: ActivityInputFormProps) {
+  const [activityName, setActivityName] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!activityName.trim() || !startTime || !endTime) return;
+
+    const newActivity: Activity = {
+      id: Date.now().toString(),
+      activityName,
+      startTime,
+      endTime,
+    };
+
+    onAddActivity(newActivity);
+
+    setActivityName("");
+    setStartTime("");
+    setEndTime("");
+  };
+
   return (
-    <form className="w-full bg-white p-4 rounded-2xl shadow-lg space-y-2 border-2">
+    <form
+      className="w-full bg-white p-4 rounded-2xl shadow-lg space-y-2 border-2"
+      onSubmit={handleSubmit}
+    >
       <input
         type="text"
         placeholder="활동 이름"
         className="w-full p-2 border rounded"
+        value={activityName}
+        onChange={(e) => setActivityName(e.target.value)}
       />
       <div className="flex gap-2">
-        <input type="time" className="flex-1 p-2 border rounded" />
-        <input type="time" className="flex-1 p-2 border rounded" />
+        <input
+          type="time"
+          className="flex-1 p-2 border rounded"
+          value={startTime}
+          onChange={(e) => setStartTime(e.target.value)}
+        />
+        <input
+          type="time"
+          className="flex-1 p-2 border rounded"
+          value={endTime}
+          onChange={(e) => setEndTime(e.target.value)}
+        />
       </div>
       <button
         type="submit"
