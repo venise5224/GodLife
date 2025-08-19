@@ -5,12 +5,12 @@ import TodoList from "@/components/TodoList";
 
 function HomePage() {
   return (
-    <main className="min-h-screen p-4 md:flex md:gap-4">
-      <section className="md:w-1/2 h-[calc(100vh-150px)] flex justify-center items-center">
+    <main className="h-[820px] flex flex-col md:flex-row">
+      <section className="md:w-1/2">
         <CircularTimeline />
       </section>
 
-      <section className="md:w-1/2 flex flex-col gap-4">
+      <section className="md:w-1/2 flex flex-col gap-4 p-4 pb-[100px] md:pb-[20px] md:overflow-y-auto">
         <TodoList />
         <ActivityInputForm />
         <ActivityStats />

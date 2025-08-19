@@ -39,7 +39,7 @@ export default function TodoList() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-4 bg-white shadow rounded-2xl">
+    <div className="w-full mx-auto p-4 bg-white shadow-lg border-2 rounded-2xl">
       <h2 className="text-xl font-bold mb-4">할 일 목록</h2>
 
       {/* 입력창 */}
