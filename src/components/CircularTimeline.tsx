@@ -15,20 +15,23 @@ const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
   const cx = size / 2;
   const cy = size / 2;
 
-  const [currentMinutes, setCurrentMinutes] = useState(getMinutes(new Date()));
-  const runnerPos = polarToCartesian(currentMinutes, r + 15);
+  const [currentMinutes, setCurrentMinutes] = useState<number | null>(null);
+  const runnerPosition =
+    currentMinutes !== null ? polarToCartesian(currentMinutes, r + 15) : null;
 
   useEffect(() => {
+    // 시간 -> 분
+    function getMinutes(date: Date) {
+      return date.getHours() * 60 + date.getMinutes();
+    }
+    setCurrentMinutes(getMinutes(new Date()));
+
     const timer = setInterval(() => {
       setCurrentMinutes(getMinutes(new Date()));
     }, 60 * 1000); // 1분마다 업데이트
+
     return () => clearInterval(timer);
   }, []);
-
-  // 시간 -> 분
-  function getMinutes(date: Date) {
-    return date.getHours() * 60 + date.getMinutes();
-  }
 
   // "HH:MM" -> 분
   function parseTime(t: string) {
@@ -39,9 +42,13 @@ const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
   // 분 -> 좌표
   function polarToCartesian(minutes: number, radius: number) {
     const angle = ((minutes / 1440) * 360 - 90) * (Math.PI / 180);
+
+    const x = cx + radius * Math.cos(angle);
+    const y = cy + radius * Math.sin(angle);
+
     return {
-      x: cx + radius * Math.cos(angle),
-      y: cy + radius * Math.sin(angle),
+      x: Number(x.toFixed(4)),
+      y: Number(y.toFixed(4)),
       angle,
     };
   }
@@ -115,20 +122,22 @@ const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
       })}
 
       {/* 현재 시간 표시 */}
-      <g
-        transform={`rotate(${(runnerPos.angle * 180) / Math.PI + 90}, ${
-          runnerPos.x
-        }, ${runnerPos.y})`}
-      >
-        <foreignObject
-          x={runnerPos.x - 30}
-          y={runnerPos.y - 30}
-          width={60}
-          height={60}
+      {runnerPosition && (
+        <g
+          transform={`rotate(${(runnerPosition.angle * 180) / Math.PI + 90}, ${
+            runnerPosition.x
+          }, ${runnerPosition.y})`}
         >
-          <Lottie animationData={running} loop />
-        </foreignObject>
-      </g>
+          <foreignObject
+            x={runnerPosition.x - 30}
+            y={runnerPosition.y - 30}
+            width={60}
+            height={60}
+          >
+            <Lottie animationData={running} loop />
+          </foreignObject>
+        </g>
+      )}
     </svg>
   );
 };
