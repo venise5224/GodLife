@@ -16,7 +16,7 @@ function HomePage() {
 
   return (
     <main className="h-[820px] flex flex-col md:flex-row">
-      <section className="md:w-1/2 flex justify-center items-center p-4">
+      <section className="md:w-1/2">
         <CircularTimeline activityList={activityList} />
       </section>
 

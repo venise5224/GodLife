@@ -2,18 +2,21 @@
 
 import { useEffect, useState } from "react";
 import { Activity } from "@/types/Activity";
+import Lottie from "lottie-react";
+import running from "../../public/lottie/running.json";
 
 interface CircularTimelineProps {
   activityList: Activity[];
 }
 
 const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
-  const size = 400; // SVG 크기
-  const r = 150; // 반지름
+  const size = 500; // SVG 크기
+  const r = size / 2 - 50; // 반지름
   const cx = size / 2;
   const cy = size / 2;
 
   const [currentMinutes, setCurrentMinutes] = useState(getMinutes(new Date()));
+  const runnerPos = polarToCartesian(currentMinutes, r + 15);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -39,6 +42,7 @@ const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
     return {
       x: cx + radius * Math.cos(angle),
       y: cy + radius * Math.sin(angle),
+      angle,
     };
   }
 
@@ -111,14 +115,20 @@ const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
       })}
 
       {/* 현재 시간 표시 */}
-      <line
-        x1={cx}
-        y1={cy}
-        x2={polarToCartesian(currentMinutes, r).x}
-        y2={polarToCartesian(currentMinutes, r).y}
-        stroke="red"
-        strokeWidth="2"
-      />
+      <g
+        transform={`rotate(${(runnerPos.angle * 180) / Math.PI + 90}, ${
+          runnerPos.x
+        }, ${runnerPos.y})`}
+      >
+        <foreignObject
+          x={runnerPos.x - 30}
+          y={runnerPos.y - 30}
+          width={60}
+          height={60}
+        >
+          <Lottie animationData={running} loop />
+        </foreignObject>
+      </g>
     </svg>
   );
 };
