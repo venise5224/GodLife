@@ -75,20 +75,40 @@ const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
         cy={cy}
         r={r}
         fill="#f8f9fa"
-        stroke="#ccc"
+        stroke="#1e2939"
         strokeWidth="2"
       />
 
       {/* 활동 영역 */}
       {activityList.map((activity) => {
         const start = parseTime(activity.startTime);
-        const end = parseTime(activity.endTime);
+        const end =
+          activity.source === "log" &&
+          !activity.endTime &&
+          currentMinutes !== null
+            ? currentMinutes
+            : parseTime(activity.endTime || activity.startTime);
         const mid = (start + end) / 2;
         const textPos = polarToCartesian(mid, r * 0.6);
 
+        // 색상/스타일 구분
+        let fillColor = "rgba(100,150,250,0.5)";
+        let strokeDasharray: string | undefined;
+        if (activity.source === "plan") fillColor = "rgba(100,150,250,0.3)";
+        if (activity.source === "log" && !activity.endTime) {
+          fillColor = "rgba(100,150,250,0.4)";
+          strokeDasharray = "4 4";
+        }
+
         return (
           <g key={activity.id}>
-            <path d={describeArc(start, end, r)} fill="rgba(100,150,250,0.5)" />
+            <path
+              d={describeArc(start, end, r)}
+              fill={fillColor}
+              stroke={strokeDasharray ? "#6496fa" : undefined}
+              strokeWidth={strokeDasharray ? 2 : undefined}
+              strokeDasharray={strokeDasharray}
+            />
             <text
               x={textPos.x}
               y={textPos.y}
@@ -114,7 +134,7 @@ const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
             textAnchor="middle"
             alignmentBaseline="middle"
             fontSize="10"
-            fill="#666"
+            fill="#000"
           >
             {i}
           </text>

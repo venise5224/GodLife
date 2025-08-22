@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { Activity } from "@/types/Activity";
 
-interface ActivityInputFormProps {
+interface ActivityPlannerProps {
   onAddActivity: (activity: Activity) => void;
 }
 
-function ActivityInputForm({ onAddActivity }: ActivityInputFormProps) {
+function ActivityPlanner({ onAddActivity }: ActivityPlannerProps) {
   const [activityName, setActivityName] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
@@ -21,6 +21,7 @@ function ActivityInputForm({ onAddActivity }: ActivityInputFormProps) {
       activityName,
       startTime,
       endTime,
+      source: "plan", // ActivityPlanner에서 추가된 활동은 "plan"으로 설정
     };
 
     onAddActivity(newActivity);
@@ -66,4 +67,4 @@ function ActivityInputForm({ onAddActivity }: ActivityInputFormProps) {
   );
 }
 
-export default ActivityInputForm;
+export default ActivityPlanner;

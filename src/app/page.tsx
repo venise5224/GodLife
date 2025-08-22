@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import CircularTimeline from "@/components/CircularTimeline";
-import ActivityInputForm from "@/components/ActivityInputForm";
+import ActivityPlanner from "@/components/ActivityPlanner";
 import ActivityStats from "@/components/ActivityStats";
 import TodoList from "@/components/TodoList";
 import { Activity } from "@/types/Activity";
+import ActivityLogger from "@/components/ActivityLogger";
 
 function HomePage() {
   const [activityList, setActivityList] = useState<Activity[]>([]);
@@ -22,7 +23,8 @@ function HomePage() {
 
       <section className="md:w-1/2 flex flex-col gap-4 p-4 pb-[100px] md:pb-[20px] md:overflow-y-auto">
         <TodoList />
-        <ActivityInputForm onAddActivity={handleAddActivity} />
+        <ActivityPlanner onAddActivity={handleAddActivity} />
+        <ActivityLogger onAddActivity={handleAddActivity} />
         <ActivityStats />
       </section>
     </main>
