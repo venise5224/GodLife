@@ -1,4 +1,4 @@
-import { getCurrentTime } from "@/utils/time";
+import { getCurrentTime } from "@/utils/currentTime";
 import { useState, useEffect } from "react";
 
 export const useCurrentTime = (intervalSeconds = 1) => {

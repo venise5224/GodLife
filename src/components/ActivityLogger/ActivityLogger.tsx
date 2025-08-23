@@ -3,10 +3,9 @@
 import { useState } from "react";
 import { Activity } from "@/types/Activity";
 import ActionButton from "@/components/ActionButton";
-import { useCurrentTime } from "@/hooks/useCurrentTime";
-import { getCurrentTime } from "@/utils/time";
-import { formatElapsed } from "@/utils/formatElapsed";
-import { useElapsedTime } from "@/hooks/useElapsedTime";
+import { getCurrentTime } from "@/utils/currentTime";
+import CurrentTime from "./CurrentTime";
+import ElapsedTime from "./ElapsedTime";
 
 interface ActivityLoggerProps {
   onAddActivity: (activity: Activity) => void;
@@ -15,8 +14,6 @@ interface ActivityLoggerProps {
 function ActivityLogger({ onAddActivity }: ActivityLoggerProps) {
   const [activityName, setActivityName] = useState("");
   const [runningActivity, setRunningActivity] = useState<Activity | null>(null);
-  const currentTime = useCurrentTime(); // 현재 시간 (HH : MM : SS)
-  const elapsedSec = useElapsedTime(runningActivity); // 경과 시간(초)
 
   const handleStart = () => {
     if (runningActivity) return;
@@ -71,9 +68,7 @@ function ActivityLogger({ onAddActivity }: ActivityLoggerProps) {
               onKeyDown={(e) => e.key === "Enter" && handleApplyName()}
               onBlur={handleApplyName}
             />
-            <div className="mt-2 text-yellow-400">
-              {formatElapsed(elapsedSec)}
-            </div>
+            <ElapsedTime runningActivity={runningActivity} />
           </>
         ) : (
           <>
@@ -90,7 +85,7 @@ function ActivityLogger({ onAddActivity }: ActivityLoggerProps) {
                 }
               }}
             />
-            <div className="mt-2 text-yellow-400">{currentTime}</div>
+            <CurrentTime />
           </>
         )}
       </div>
