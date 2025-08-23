@@ -12,7 +12,13 @@ function HomePage() {
   const [activityList, setActivityList] = useState<Activity[]>([]);
 
   const handleAddActivity = (activity: Activity) => {
-    setActivityList((prev) => [...prev, activity]);
+    setActivityList((prev) => {
+      const exists = prev.find((a) => a.id === activity.id);
+      if (exists) {
+        return prev.map((a) => (a.id === activity.id ? activity : a));
+      }
+      return [...prev, activity];
+    });
   };
 
   return (
