@@ -6,7 +6,7 @@ import ActivityPlanner from "@/components/ActivityPlanner";
 import ActivityStats from "@/components/ActivityStats";
 import TodoList from "@/components/TodoList";
 import { Activity } from "@/types/Activity";
-import ActivityLogger from "@/components/ActivityLogger";
+import ActivityLogger from "@/components/ActivityLogger/ActivityLogger";
 
 function HomePage() {
   const [activityList, setActivityList] = useState<Activity[]>([]);
