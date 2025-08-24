@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Activity } from "@/types/Activity";
-import ActionButton from "@/components/ActionButton";
+import ActionButton from "@/components/ActivityBoard/ActionButton";
 import { getCurrentTime } from "@/utils/currentTime";
 import CurrentTime from "./CurrentTime";
 import ElapsedTime from "./ElapsedTime";
@@ -51,9 +51,9 @@ function ActivityLogger({ onAddActivity }: ActivityLoggerProps) {
   };
 
   return (
-    <div className="w-full bg-white p-4 rounded-2xl shadow-lg space-y-2 border-2">
+    <div className="w-full bg-white rounded-2xl space-y-2">
       {/* 디스플레이 영역 */}
-      <div className="bg-gray-800 p-4 rounded-xl text-center text-lg ">
+      <div className="bg-gray-800 p-4 rounded-xl text-center text-lg h-[112px]">
         {runningActivity ? (
           <>
             <input
