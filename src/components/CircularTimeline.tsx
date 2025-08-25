@@ -10,10 +10,10 @@ interface CircularTimelineProps {
 }
 
 const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
-  const size = 500; // SVG 크기
-  const r = size / 2 - 50; // 반지름
-  const cx = size / 2;
-  const cy = size / 2;
+  const SIZE = 500; // SVG 크기
+  const r = SIZE / 2 - 50; // 반지름
+  const cx = SIZE / 2;
+  const cy = SIZE / 2;
 
   const [currentMinutes, setCurrentMinutes] = useState<number | null>(null);
   const runnerPosition =
@@ -68,7 +68,7 @@ const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
   }
 
   return (
-    <svg className="w-full h-full" viewBox={`0 0 ${size} ${size}`}>
+    <svg className="w-full h-full" viewBox={`0 0 ${SIZE} ${SIZE}`}>
       {/* 배경 원 */}
       <circle
         cx={cx}
@@ -92,12 +92,18 @@ const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
         const textPos = polarToCartesian(mid, r * 0.6);
 
         // 색상/스타일 구분
-        let fillColor = "rgba(100,150,250,0.5)";
+        let fillColor = "transparent";
         let strokeDasharray: string | undefined;
-        if (activity.source === "plan") fillColor = "rgba(100,150,250,0.3)";
-        if (activity.source === "log" && !activity.endTime) {
-          fillColor = "rgba(100,150,250,0.4)";
-          strokeDasharray = "4 4";
+
+        if (activity.source === "plan") {
+          fillColor = "rgba(234, 179, 8, 0.3)"; // 연노랑
+        }
+
+        if (activity.source === "log") {
+          fillColor = "rgba(34, 197, 94, 1)"; // 초록
+          if (!activity.endTime) {
+            strokeDasharray = "4 4";
+          }
         }
 
         return (
@@ -105,8 +111,8 @@ const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
             <path
               d={describeArc(start, end, r)}
               fill={fillColor}
-              stroke={strokeDasharray ? "#6496fa" : undefined}
-              strokeWidth={strokeDasharray ? 2 : undefined}
+              stroke={`rgba(0,0,0,1)`}
+              strokeWidth={1}
               strokeDasharray={strokeDasharray}
             />
             <text
