@@ -1,21 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Activity } from "@/types/Activity";
 import Lottie from "lottie-react";
 import running from "../../public/lottie/running.json";
+import { useActivityStore } from "@/stores/useActivityStore";
+import { parseTime } from "@/utils/parseTime";
 
-interface CircularTimelineProps {
-  activityList: Activity[];
-}
+const SIZE = 500; // SVG 크기
+const r = SIZE / 2 - 50; // 반지름
+const cx = SIZE / 2;
+const cy = SIZE / 2;
 
-const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
-  const SIZE = 500; // SVG 크기
-  const r = SIZE / 2 - 50; // 반지름
-  const cx = SIZE / 2;
-  const cy = SIZE / 2;
-
+const CircularTimeline = () => {
   const [currentMinutes, setCurrentMinutes] = useState<number | null>(null);
+  const { activityList } = useActivityStore();
   const runnerPosition =
     currentMinutes !== null ? polarToCartesian(currentMinutes, r + 15) : null;
 
@@ -32,12 +30,6 @@ const CircularTimeline = ({ activityList }: CircularTimelineProps) => {
 
     return () => clearInterval(timer);
   }, []);
-
-  // "HH:MM" -> 분
-  function parseTime(t: string) {
-    const [h, m] = t.split(":").map(Number);
-    return h * 60 + m;
-  }
 
   // 분 -> 좌표
   function polarToCartesian(minutes: number, radius: number) {

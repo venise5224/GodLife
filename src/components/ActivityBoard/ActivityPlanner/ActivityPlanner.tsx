@@ -3,15 +3,13 @@
 import { useState } from "react";
 import { Activity } from "@/types/Activity";
 import ActionButton from "../ActionButton";
+import { useActivityStore } from "@/stores/useActivityStore";
 
-interface ActivityPlannerProps {
-  onAddActivity: (activity: Activity) => void;
-}
-
-function ActivityPlanner({ onAddActivity }: ActivityPlannerProps) {
+function ActivityPlanner() {
   const [activityName, setActivityName] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
+  const { addActivity } = useActivityStore();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +23,7 @@ function ActivityPlanner({ onAddActivity }: ActivityPlannerProps) {
       source: "plan", // ActivityPlanner에서 추가된 활동은 "plan"으로 설정
     };
 
-    onAddActivity(newActivity);
+    addActivity(newActivity);
 
     setActivityName("");
     setStartTime("");

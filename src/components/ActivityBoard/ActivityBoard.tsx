@@ -1,13 +1,10 @@
+"use client";
+
 import { useState } from "react";
 import ActivityLogger from "./ActivityLogger/ActivityLogger";
 import ActivityPlanner from "./ActivityPlanner/ActivityPlanner";
-import { Activity } from "@/types/Activity";
 
-interface ActivityBoardProps {
-  onAddActivity: (activity: Activity) => void;
-}
-
-const ActivityBoard = ({ onAddActivity }: ActivityBoardProps) => {
+const ActivityBoard = () => {
   const [activeTab, setActiveTab] = useState<"logger" | "planner">("logger");
 
   return (
@@ -38,11 +35,7 @@ const ActivityBoard = ({ onAddActivity }: ActivityBoardProps) => {
 
       {/* 탭 컨텐츠 */}
       <div className="border-2 border-t-0 rounded-b-2xl p-4 h-[242px]">
-        {activeTab === "logger" ? (
-          <ActivityLogger onAddActivity={onAddActivity} />
-        ) : (
-          <ActivityPlanner onAddActivity={onAddActivity} />
-        )}
+        {activeTab === "logger" ? <ActivityLogger /> : <ActivityPlanner />}
       </div>
     </div>
   );

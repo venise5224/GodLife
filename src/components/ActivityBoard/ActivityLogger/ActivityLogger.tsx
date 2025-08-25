@@ -2,18 +2,16 @@
 
 import { useState } from "react";
 import { Activity } from "@/types/Activity";
-import ActionButton from "@/components/ActivityBoard/ActionButton";
 import { getCurrentTime } from "@/utils/currentTime";
+import { useActivityStore } from "@/stores/useActivityStore";
+import ActionButton from "@/components/ActivityBoard/ActionButton";
 import CurrentTime from "./CurrentTime";
 import ElapsedTime from "./ElapsedTime";
 
-interface ActivityLoggerProps {
-  onAddActivity: (activity: Activity) => void;
-}
-
-function ActivityLogger({ onAddActivity }: ActivityLoggerProps) {
+function ActivityLogger() {
   const [activityName, setActivityName] = useState("");
-  const [runningActivity, setRunningActivity] = useState<Activity | null>(null);
+  const { runningActivity, setRunningActivity, addActivity, updateActivity } =
+    useActivityStore();
 
   const handleStart = () => {
     if (runningActivity) return;
@@ -26,7 +24,7 @@ function ActivityLogger({ onAddActivity }: ActivityLoggerProps) {
       source: "log",
     };
 
-    onAddActivity(newActivity);
+    addActivity(newActivity);
     setRunningActivity(newActivity);
   };
 
@@ -38,15 +36,15 @@ function ActivityLogger({ onAddActivity }: ActivityLoggerProps) {
       endTime: getCurrentTime(),
     };
 
-    onAddActivity(finishedActivity);
+    updateActivity(finishedActivity);
     setRunningActivity(null);
     setActivityName("");
   };
 
-  // 진행 중 활동명 변경 후 제출 함수
-  const handleApplyName = () => {
+  // 진행 중 활동 이름 변경
+  const handleChangeActivityName = () => {
     if (runningActivity) {
-      onAddActivity(runningActivity);
+      updateActivity(runningActivity);
     }
   };
 
@@ -61,12 +59,13 @@ function ActivityLogger({ onAddActivity }: ActivityLoggerProps) {
               className="w-full p-2 rounded-xl text-center text-white border-0 focus:outline-none"
               value={runningActivity.activityName}
               onChange={(e) =>
-                setRunningActivity((prev) =>
-                  prev ? { ...prev, activityName: e.target.value } : prev
-                )
+                setRunningActivity({
+                  ...runningActivity,
+                  activityName: e.target.value,
+                })
               }
-              onKeyDown={(e) => e.key === "Enter" && handleApplyName()}
-              onBlur={handleApplyName}
+              onKeyDown={(e) => e.key === "Enter" && handleChangeActivityName()}
+              onBlur={handleChangeActivityName}
             />
             <ElapsedTime runningActivity={runningActivity} />
           </>
