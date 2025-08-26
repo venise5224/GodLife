@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Activity } from "@/types/Activity";
 import ActionButton from "../ActionButton";
 import { useActivityStore } from "@/stores/useActivityStore";
+import { toHMS } from "@/utils/toHMS";
 
 function ActivityPlanner() {
   const [activityName, setActivityName] = useState("");
@@ -18,8 +19,8 @@ function ActivityPlanner() {
     const newActivity: Activity = {
       id: Date.now().toString(),
       activityName,
-      startTime,
-      endTime,
+      startTime: toHMS(startTime),
+      endTime: toHMS(endTime),
       source: "plan", // ActivityPlanner에서 추가된 활동은 "plan"으로 설정
     };
 
