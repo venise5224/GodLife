@@ -1,4 +1,4 @@
-import CircularTimeline from "@/components/CircularTimeline";
+import CircularTimeline from "@/components/CircularTimeline/CircularTimeline";
 import ActivityStats from "@/components/ActivityStats";
 import TodoList from "@/components/TodoList";
 import ActivityBoard from "@/components/ActivityBoard/ActivityBoard";
