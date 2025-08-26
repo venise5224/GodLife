@@ -13,7 +13,7 @@ function HomePage() {
       <section className="md:w-1/2 flex flex-col gap-4 p-4 pb-[100px] md:pb-[20px] md:overflow-y-auto">
         <TodoList />
         <ActivityBoard />
-        <ActivityStats />
+        {/* <ActivityStats /> */}
       </section>
     </main>
   );
