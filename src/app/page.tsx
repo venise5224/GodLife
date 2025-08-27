@@ -1,7 +1,7 @@
 import CircularTimeline from "@/components/CircularTimeline/CircularTimeline";
 import ActivityStats from "@/components/ActivityStats";
-import TodoList from "@/components/TodoList";
 import ActivityBoard from "@/components/ActivityBoard/ActivityBoard";
+import ActivityList from "@/components/ActivityList/ActivityList";
 
 function HomePage() {
   return (
@@ -11,7 +11,7 @@ function HomePage() {
       </section>
 
       <section className="md:w-1/2 flex flex-col gap-4 p-4 pb-[100px] md:pb-[20px] md:overflow-y-auto">
-        <TodoList />
+        <ActivityList />
         <ActivityBoard />
         {/* <ActivityStats /> */}
       </section>

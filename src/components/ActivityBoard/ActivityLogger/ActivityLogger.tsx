@@ -8,7 +8,7 @@ import ActionButton from "@/components/ActivityBoard/ActionButton";
 import CurrentTime from "./CurrentTime";
 import ElapsedTime from "./ElapsedTime";
 
-function ActivityLogger() {
+const ActivityLogger = () => {
   const [activityName, setActivityName] = useState("");
   const { runningActivity, setRunningActivity, addActivity, updateActivity } =
     useActivityStore();
@@ -108,6 +108,6 @@ function ActivityLogger() {
       </div>
     </div>
   );
-}
+};
 
 export default ActivityLogger;
