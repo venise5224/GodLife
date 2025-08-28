@@ -9,6 +9,7 @@ import ListHeader from "./ListHeader";
 import RowItem from "./RowItem";
 import ActivityFilter from "./ActivityFilter";
 import TodoInput from "./TodoInput";
+import { TIME_FMT } from "@/utils/constants";
 
 const ActivityList = () => {
   const [filter, setFilter] = useState<"All" | "Todo" | "Plan" | "Log">("All");
@@ -81,7 +82,7 @@ const ActivityList = () => {
       // 3. 활동은 시작시간 기준으로 최신순 정렬
       const getTime = (row: Row): number => {
         if (row.kind === "activity" && row.start) {
-          return parse(row.start, "HH : mm : ss", new Date()).getTime();
+          return parse(row.start, TIME_FMT, new Date()).getTime();
         }
         return 0;
       };

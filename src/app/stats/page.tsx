@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import PlanStats from "./components/PlanStats";
-import LogStats from "./components/LogStats";
 import PlanVsLogStats from "./components/PlanVsLogStats";
+import ActivityStats from "./components/ActivityStats";
 
 const Stats = () => {
   const [activeTab, setActiveTab] = useState<"plan" | "log" | "planVsLog">(
@@ -37,8 +36,8 @@ const Stats = () => {
 
       {/* 탭 컨텐츠 */}
       <div className="border-2 border-t-0 rounded-b-2xl p-4 h-[500px] sm:h-[740px] overflow-y-auto">
-        {activeTab === "plan" && <PlanStats />}
-        {activeTab === "log" && <LogStats />}
+        {activeTab === "plan" && <ActivityStats source="plan" />}
+        {activeTab === "log" && <ActivityStats source="log" />}
         {activeTab === "planVsLog" && <PlanVsLogStats />}
       </div>
     </div>
