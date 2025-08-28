@@ -12,7 +12,7 @@ const ActivityBoard = () => {
       {/* 탭 버튼 */}
       <div className="flex">
         <button
-          className={`flex-1 p-2 rounded-t-lg ${
+          className={`flex-1 p-2 rounded-t-lg cursor-pointer ${
             activeTab === "logger"
               ? "bg-white border-2 border-b-0"
               : "bg-gray-200 text-gray-700 border-b-2"
@@ -22,7 +22,7 @@ const ActivityBoard = () => {
           할 일 기록
         </button>
         <button
-          className={`flex-1 p-2 rounded-t-lg ${
+          className={`flex-1 p-2 rounded-t-lg cursor-pointer ${
             activeTab === "planner"
               ? "bg-white border-2 border-b-0"
               : "bg-gray-200 text-gray-700 border-b-2"
