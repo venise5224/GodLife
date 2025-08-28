@@ -23,7 +23,7 @@ const Stats = () => {
         {tabs.map((tab) => (
           <button
             key={tab.key}
-            className={`flex-1 p-2 rounded-t-lg font-medium ${
+            className={`flex-1 p-2 rounded-t-lg font-medium cursor-pointer ${
               activeTab === tab.key
                 ? "bg-white border-2 border-b-0"
                 : "bg-gray-200 text-gray-700 border-b-2"
