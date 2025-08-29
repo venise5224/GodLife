@@ -5,6 +5,8 @@ import TimelineActivity from "./TimelineActivity";
 import TimelineRunner from "./TimelineRunner";
 import { polarToCartesian } from "@/utils/timeLine";
 import useTodayActivities from "@/hooks/useTodayActivities";
+import { useResetHour } from "@/hooks/useResetHour";
+import { LucideTimerReset } from "lucide-react";
 
 const SIZE = 500; // SVG 크기
 const r = SIZE / 2 - 50; // 반지름
@@ -14,6 +16,7 @@ const cy = SIZE / 2;
 const CircularTimeline = () => {
   const [currentMinutes, setCurrentMinutes] = useState<number | null>(null);
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
+  const { resetHour, setResetHour } = useResetHour();
   const activityList = useTodayActivities(); // 오늘의 활동들
 
   useEffect(() => {
@@ -68,17 +71,32 @@ const CircularTimeline = () => {
       {Array.from({ length: 24 }).map((_, i) => {
         const pos = polarToCartesian(cx, cy, i * 60, r + 20);
         return (
-          <text
-            key={i}
-            x={pos.x}
-            y={pos.y}
-            textAnchor="middle"
-            alignmentBaseline="middle"
-            fontSize="10"
-            fill="#000"
-          >
-            {i}
-          </text>
+          <g key={i}>
+            <text
+              x={pos.x}
+              y={pos.y}
+              textAnchor="middle"
+              alignmentBaseline="middle"
+              fontSize={10}
+              fill="#000"
+              fontWeight="normal"
+              className="cursor-pointer fill-current hover:font-bold hover:text-red-500"
+              onClick={() => setResetHour(i)}
+            >
+              {i !== resetHour && i}
+            </text>
+
+            {i === resetHour && (
+              <foreignObject
+                x={pos.x - 12}
+                y={pos.y - 14}
+                width={25}
+                height={25}
+              >
+                <LucideTimerReset size={25} className="text-red-500" />
+              </foreignObject>
+            )}
+          </g>
         );
       })}
 

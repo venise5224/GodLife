@@ -29,8 +29,12 @@ export default function TimelineActivity({
     activity.source === "log" && !activity.endTime && currentMinutes !== null
       ? currentMinutes
       : parseTime(activity.endTime || activity.startTime);
-  const mid = (start + end) / 2;
-  const textPos = polarToCartesian(cx, cy, mid, r * 0.6);
+
+  const adjustedEnd = end < start ? end + 1440 : end;
+  const mid = (start + adjustedEnd) / 2;
+  const midMinutes = mid % 1440;
+
+  const textPos = polarToCartesian(cx, cy, midMinutes, r * 0.6);
 
   const fillColor =
     activity.source === "plan"

@@ -7,9 +7,12 @@ import { useActivityStore } from "@/stores/useActivityStore";
 import ActionButton from "@/components/ActivityBoard/ActionButton";
 import CurrentTime from "./CurrentTime";
 import ElapsedTime from "./ElapsedTime";
+import { useResetHour } from "@/hooks/useResetHour";
+import { getTodayKey } from "@/utils/getTodayKey";
 
 const ActivityLogger = () => {
   const [activityName, setActivityName] = useState("");
+  const { resetHour } = useResetHour();
   const { runningActivity, setRunningActivity, addActivity, updateActivity } =
     useActivityStore();
 
@@ -21,7 +24,7 @@ const ActivityLogger = () => {
       id: Date.now().toString(),
       activityName,
       startTime: getCurrentTime(),
-      date: new Date().toISOString().split("T")[0], // 현재 날짜 (YYYY-MM-DD)
+      date: getTodayKey(resetHour),
       source: "log",
     };
 

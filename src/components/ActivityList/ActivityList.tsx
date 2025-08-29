@@ -11,6 +11,7 @@ import ActivityFilter from "./ActivityFilter";
 import TodoInput from "./TodoInput";
 import { TIME_FMT } from "@/utils/constants";
 import useTodayActivities from "@/hooks/useTodayActivities";
+import { LucideTimerReset } from "lucide-react";
 
 const ActivityList = () => {
   const [filter, setFilter] = useState<"All" | "Todo" | "Plan" | "Log">("All");

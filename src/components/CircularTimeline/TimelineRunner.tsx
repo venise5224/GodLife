@@ -22,6 +22,7 @@ export default function TimelineRunner({
 
   return (
     <g
+      className="pointer-events-none"
       transform={`rotate(${(runnerPosition.angle * 180) / Math.PI + 90}, ${
         runnerPosition.x
       }, ${runnerPosition.y})`}
