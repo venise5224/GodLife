@@ -10,11 +10,13 @@ import RowItem from "./RowItem";
 import ActivityFilter from "./ActivityFilter";
 import TodoInput from "./TodoInput";
 import { TIME_FMT } from "@/utils/constants";
+import useTodayActivities from "@/hooks/useTodayActivities";
 
 const ActivityList = () => {
   const [filter, setFilter] = useState<"All" | "Todo" | "Plan" | "Log">("All");
-  const { activityList, removeActivity } = useActivityStore();
+  const { removeActivity } = useActivityStore();
   const { todos, addTodo, removeTodo } = useTodoStore();
+  const activityList = useTodayActivities(); // 오늘의 활동들
 
   const rows: Row[] = useMemo(() => {
     const todoRows: Row[] = todos.map((t) => ({

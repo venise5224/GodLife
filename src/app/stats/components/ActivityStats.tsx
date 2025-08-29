@@ -2,7 +2,7 @@
 
 import ActivityStatsHeader from "./ActivityStatsHeader";
 import ActivityStatItem from "./ActivityStatsItem";
-import { useGroupedActivities } from "@/hooks/useGroupedActivities";
+import useGroupedActivities from "@/hooks/useGroupedActivities";
 
 interface ActivityStatsProps {
   source: "plan" | "log";

@@ -1,10 +1,10 @@
 import { useMemo } from "react";
-import { useActivityStore } from "@/stores/useActivityStore";
 import { parse, differenceInMinutes } from "date-fns";
 import { DAY_MINUTES, TIME_FMT } from "@/utils/constants";
+import useTodayActivities from "./useTodayActivities";
 
-export function useGroupedActivities(source: "plan" | "log") {
-  const activityList = useActivityStore((state) => state.activityList);
+const useGroupedActivities = (source: "plan" | "log") => {
+  const activityList = useTodayActivities();
 
   return useMemo(() => {
     const filtered = activityList.filter(
@@ -36,4 +36,6 @@ export function useGroupedActivities(source: "plan" | "log") {
       grouped,
     };
   }, [activityList, source]);
-}
+};
+
+export default useGroupedActivities;

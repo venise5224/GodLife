@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useActivityStore } from "@/stores/useActivityStore";
 import TimelineActivity from "./TimelineActivity";
 import TimelineRunner from "./TimelineRunner";
 import { polarToCartesian } from "@/utils/timeLine";
+import useTodayActivities from "@/hooks/useTodayActivities";
 
 const SIZE = 500; // SVG 크기
 const r = SIZE / 2 - 50; // 반지름
@@ -14,7 +14,7 @@ const cy = SIZE / 2;
 const CircularTimeline = () => {
   const [currentMinutes, setCurrentMinutes] = useState<number | null>(null);
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
-  const { activityList } = useActivityStore();
+  const activityList = useTodayActivities(); // 오늘의 활동들
 
   useEffect(() => {
     function getMinutes(date: Date) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useGroupedActivities } from "@/hooks/useGroupedActivities";
+import useGroupedActivities from "@/hooks/useGroupedActivities";
 import PlanVsLogStatsHeader from "./PlanVsLogStatsHeader";
 
 export default function PlanVsLogStats() {

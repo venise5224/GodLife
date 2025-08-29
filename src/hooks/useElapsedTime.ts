@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Activity } from "@/types/Activity";
 
 // Activity의 startTime을 받아서 경과 시간(초)을 반환
-export const useElapsedTime = (activity: Activity | null) => {
+const useElapsedTime = (activity: Activity | null) => {
   const [elapsedSec, setElapsedSec] = useState(0);
 
   useEffect(() => {
@@ -31,3 +31,5 @@ export const useElapsedTime = (activity: Activity | null) => {
 
   return elapsedSec;
 };
+
+export default useElapsedTime;
