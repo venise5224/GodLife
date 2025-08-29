@@ -1,7 +1,7 @@
 import { getCurrentTime } from "@/utils/currentTime";
 import { useState, useEffect } from "react";
 
-export const useCurrentTime = (intervalSeconds = 1) => {
+const useCurrentTime = (intervalSeconds = 1) => {
   const [currentTime, setCurrentTime] = useState<string | null>(null);
 
   useEffect(() => {
@@ -15,3 +15,5 @@ export const useCurrentTime = (intervalSeconds = 1) => {
 
   return currentTime;
 };
+
+export default useCurrentTime;

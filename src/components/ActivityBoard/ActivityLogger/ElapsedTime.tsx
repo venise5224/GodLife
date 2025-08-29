@@ -1,6 +1,6 @@
 "use client";
 
-import { useElapsedTime } from "@/hooks/useElapsedTime";
+import useElapsedTime from "@/hooks/useElapsedTime";
 import { formatElapsed } from "@/utils/formatElapsed";
 import { Activity } from "@/types/Activity";
 

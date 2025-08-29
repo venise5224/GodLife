@@ -5,12 +5,15 @@ import { Activity } from "@/types/Activity";
 import ActionButton from "../ActionButton";
 import { useActivityStore } from "@/stores/useActivityStore";
 import { toHMS } from "@/utils/toHMS";
+import { getTodayKey } from "@/utils/getTodayKey";
+import { useResetHour } from "@/hooks/useResetHour";
 
 function ActivityPlanner() {
   const [activityName, setActivityName] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const { addActivity } = useActivityStore();
+  const { resetHour } = useResetHour();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,6 +24,7 @@ function ActivityPlanner() {
       activityName,
       startTime: toHMS(startTime),
       endTime: toHMS(endTime),
+      date: getTodayKey(resetHour),
       source: "plan", // ActivityPlanner에서 추가된 활동은 "plan"으로 설정
     };
 
