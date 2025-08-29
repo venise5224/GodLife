@@ -21,6 +21,7 @@ function ActivityPlanner() {
       activityName,
       startTime: toHMS(startTime),
       endTime: toHMS(endTime),
+      date: new Date().toISOString().split("T")[0], // 현재 날짜 (YYYY-MM-DD)
       source: "plan", // ActivityPlanner에서 추가된 활동은 "plan"으로 설정
     };
 

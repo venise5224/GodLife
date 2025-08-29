@@ -21,6 +21,7 @@ const ActivityLogger = () => {
       id: Date.now().toString(),
       activityName,
       startTime: getCurrentTime(),
+      date: new Date().toISOString().split("T")[0], // 현재 날짜 (YYYY-MM-DD)
       source: "log",
     };
 
