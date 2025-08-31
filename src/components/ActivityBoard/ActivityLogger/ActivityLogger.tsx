@@ -7,12 +7,12 @@ import { useActivityStore } from "@/stores/useActivityStore";
 import ActionButton from "@/components/ActivityBoard/ActionButton";
 import CurrentTime from "./CurrentTime";
 import ElapsedTime from "./ElapsedTime";
-import { useResetHour } from "@/hooks/useResetHour";
 import { getTodayKey } from "@/utils/getTodayKey";
+import { useResetHourStore } from "@/stores/useResetHourStore";
 
 const ActivityLogger = () => {
   const [activityName, setActivityName] = useState("");
-  const { resetHour } = useResetHour();
+  const { resetHour } = useResetHourStore();
   const { runningActivity, setRunningActivity, addActivity, updateActivity } =
     useActivityStore();
 
