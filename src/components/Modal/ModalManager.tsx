@@ -4,13 +4,13 @@ import { useModalStore } from "@/stores/useModalStore";
 import ResetHourModal from "./ModalContents/ResetHourModal";
 
 const ModalManager = () => {
-  const { modalType, modalProps } = useModalStore();
+  const { modalType } = useModalStore();
 
   if (!modalType) return null;
 
   switch (modalType) {
     case "RESET_HOUR":
-      return <ResetHourModal {...modalProps} />;
+      return <ResetHourModal />;
     default:
       return null;
   }

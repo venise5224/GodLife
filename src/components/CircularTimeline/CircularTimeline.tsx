@@ -5,9 +5,9 @@ import TimelineActivity from "./TimelineActivity";
 import TimelineRunner from "./TimelineRunner";
 import { polarToCartesian } from "@/utils/timeLine";
 import useTodayActivities from "@/hooks/useTodayActivities";
-import { useResetHour } from "@/hooks/useResetHour";
 import { LucideTimerReset } from "lucide-react";
 import { useModalStore } from "@/stores/useModalStore";
+import { useResetHourStore } from "@/stores/useResetHourStore";
 
 const SIZE = 500; // SVG 크기
 const r = SIZE / 2 - 50; // 반지름
@@ -17,7 +17,7 @@ const cy = SIZE / 2;
 const CircularTimeline = () => {
   const [currentMinutes, setCurrentMinutes] = useState<number | null>(null);
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
-  const { resetHour, setResetHour } = useResetHour();
+  const { resetHour } = useResetHourStore();
   const { openModal } = useModalStore();
   const activityList = useTodayActivities(); // 오늘의 활동들
 
@@ -83,7 +83,7 @@ const CircularTimeline = () => {
               fill="#000"
               fontWeight="normal"
               className="cursor-pointer fill-current hover:font-bold hover:text-red-500"
-              onClick={() => openModal("RESET_HOUR", { i })}
+              onClick={() => openModal("RESET_HOUR", { resetHour: i })}
             >
               {i !== resetHour && i}
             </text>

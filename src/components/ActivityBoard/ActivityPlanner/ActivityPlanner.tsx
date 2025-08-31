@@ -6,14 +6,14 @@ import ActionButton from "../ActionButton";
 import { useActivityStore } from "@/stores/useActivityStore";
 import { toHMS } from "@/utils/toHMS";
 import { getTodayKey } from "@/utils/getTodayKey";
-import { useResetHour } from "@/hooks/useResetHour";
+import { useResetHourStore } from "@/stores/useResetHourStore";
 
 function ActivityPlanner() {
   const [activityName, setActivityName] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const { addActivity } = useActivityStore();
-  const { resetHour } = useResetHour();
+  const { resetHour } = useResetHourStore();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

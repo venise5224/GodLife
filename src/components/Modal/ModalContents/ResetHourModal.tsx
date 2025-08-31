@@ -1,29 +1,49 @@
 "use client";
 
 import { useModalStore } from "@/stores/useModalStore";
+import React from "react";
+import { useResetHourStore } from "@/stores/useResetHourStore";
 
 const ResetHourModal = () => {
-  const { closeModal } = useModalStore();
+  const { modalProps, closeModal } = useModalStore();
+  const { resetHour, setResetHour } = useResetHourStore();
+
+  const selectedHour = modalProps?.resetHour ?? resetHour;
+  const nowHour = new Date().getHours();
+
+  const willResetToday = nowHour >= selectedHour;
+
+  const handleConfirm = () => {
+    setResetHour(modalProps?.resetHour ?? 0);
+    closeModal();
+  };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/50">
-      <div className="bg-white rounded-xl p-6 shadow-lg w-80">
-        <p className="mb-4 text-center">
-          초기화 시각을 변경하면 타임라인이 초기화돼요.
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+      <div className="bg-white p-6 rounded-xl w-[350px]">
+        <h2 className="text-lg font-bold text-center">초기화 시간 설정</h2>
+        <p className="text-sm mt-4">선택하신 초기화 시간: {selectedHour}시</p>
+        <p className="text-sm text-gray-600 mt-4">
+          {willResetToday ? (
+            <span>
+              초기화 시간이 이미 지나{" "}
+              <span className="text-red-500">타임라인이 초기화</span>됩니다.
+            </span>
+          ) : (
+            "타임라인의 기존 활동과 계획이 유지됩니다."
+          )}
         </p>
-        <div className="flex justify-end gap-2">
+
+        <div className="flex justify-between mt-4 gap-2 ">
           <button
-            className="px-3 py-1 bg-gray-200 rounded"
+            className="w-full px-4 py-2 bg-gray-300 rounded cursor-pointer"
             onClick={closeModal}
           >
             취소
           </button>
           <button
-            className="px-3 py-1 bg-red-500 text-white rounded"
-            onClick={() => {
-              console.log("ResetHourModal 확인 클릭!");
-              closeModal();
-            }}
+            className="w-full px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
+            onClick={handleConfirm}
           >
             확인
           </button>
