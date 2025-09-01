@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import Header from "@/components/Layout/Header";
-import Footer from "@/components/Layout/Footer";
 import ModalManager from "@/components/Modal/ModalManager";
+import LayoutWrapper from "@/components/Layout/LayoutWrapper";
 
 export const metadata: Metadata = {
   title: "갓생러 프로젝트",
@@ -17,10 +16,8 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <Header />
-        {children}
+        <LayoutWrapper>{children}</LayoutWrapper>
         <ModalManager />
-        <Footer />
       </body>
     </html>
   );
