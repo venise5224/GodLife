@@ -6,6 +6,7 @@ import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
@@ -40,8 +41,15 @@ export default function SignInPage() {
 
   return (
     <div className="w-full max-w-md">
-      <h1 className="text-2xl font-bold text-center">
-        <Link href="/">로그인</Link>{" "}
+      <h1 className="text-2xl font-bold text-center cursor-pointer">
+        <Link href="/">
+          <Image
+            src="/icons/GodLifeLogo.png"
+            alt="Logo"
+            width={500}
+            height={500}
+          />
+        </Link>{" "}
       </h1>
       <p className="mt-4 text-center font-bold">
         회원이 아니신가요?{" "}
