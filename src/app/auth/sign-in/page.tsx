@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function SignInPage() {
+const SignInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -99,4 +99,6 @@ export default function SignInPage() {
       </button>
     </div>
   );
-}
+};
+
+export default SignInPage;
