@@ -34,7 +34,7 @@ const ActivityBoard = () => {
       </div>
 
       {/* 탭 컨텐츠 */}
-      <div className="border-2 border-t-0 rounded-b-2xl p-4 h-[242px]">
+      <div className="border-2 border-t-0 rounded-b-2xl p-4 sm:h-[242px]">
         {activeTab === "logger" ? <ActivityLogger /> : <ActivityPlanner />}
       </div>
     </div>
