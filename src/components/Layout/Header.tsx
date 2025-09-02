@@ -31,7 +31,7 @@ function Header() {
         {user ? (
           <div className="flex items-center gap-2">
             <Image
-              src={user.photoURL ?? "/default-avatar.png"}
+              src={user.photoURL ?? "/icons/default-profile.png"}
               alt="profile"
               width={32}
               height={32}
