@@ -55,12 +55,12 @@ const ActivityLogger = () => {
   return (
     <div className="w-full bg-white rounded-2xl space-y-2">
       {/* 디스플레이 영역 */}
-      <div className="bg-gray-800 p-4 rounded-xl text-center text-lg h-[112px]">
+      <div className="bg-gray-800 p-2 sm:p-4 rounded-xl text-center text-lg h-[69px] sm:h-[112px]">
         {runningActivity ? (
           <>
             <input
               type="text"
-              className="w-full p-2 rounded-xl text-center text-white border-0 focus:outline-none"
+              className="w-full p-1 sm:p-2 text-sm sm:text-lg rounded-xl text-center text-white border-0 focus:outline-none"
               value={runningActivity.activityName}
               onChange={(e) =>
                 setRunningActivity({
@@ -78,7 +78,7 @@ const ActivityLogger = () => {
             <input
               type="text"
               placeholder="할 일을 입력하세요"
-              className="w-full p-2 rounded-xl text-center text-white border-0 focus:outline-none"
+              className="w-full p-1 sm:p-2 text-sm sm:text-lg rounded-xl text-center text-white border-0 focus:outline-none"
               value={activityName}
               onChange={(e) => setActivityName(e.target.value)}
               onKeyDown={(e) => {
