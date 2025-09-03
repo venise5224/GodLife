@@ -94,7 +94,7 @@ const ActivityLogger = () => {
       </div>
 
       {/* 버튼 영역 */}
-      <div className="mt-4 flex gap-4 justify-around">
+      <div className="mt-2 sm:mt-4 flex gap-4 justify-around">
         <ActionButton
           text="Start"
           bgColor="bg-green-500"

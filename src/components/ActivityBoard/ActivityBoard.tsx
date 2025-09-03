@@ -12,7 +12,7 @@ const ActivityBoard = () => {
       {/* 탭 버튼 */}
       <div className="flex">
         <button
-          className={`flex-1 p-2 rounded-t-lg cursor-pointer ${
+          className={`flex-1 p-1 sm:p-2 text-sm sm:text-base rounded-t-lg cursor-pointer ${
             activeTab === "logger"
               ? "bg-white border-2 border-b-0"
               : "bg-gray-200 text-gray-700 border-b-2"
@@ -22,7 +22,7 @@ const ActivityBoard = () => {
           할 일 기록
         </button>
         <button
-          className={`flex-1 p-2 rounded-t-lg cursor-pointer ${
+          className={`flex-1 p-1 sm:p-2 text-sm sm:text-base rounded-t-lg cursor-pointer ${
             activeTab === "planner"
               ? "bg-white border-2 border-b-0"
               : "bg-gray-200 text-gray-700 border-b-2"
@@ -34,7 +34,7 @@ const ActivityBoard = () => {
       </div>
 
       {/* 탭 컨텐츠 */}
-      <div className="border-2 border-t-0 rounded-b-2xl p-4 sm:h-[242px]">
+      <div className="border-2 border-t-0 rounded-b-2xl p-2 sm:p-4">
         {activeTab === "logger" ? <ActivityLogger /> : <ActivityPlanner />}
       </div>
     </div>
