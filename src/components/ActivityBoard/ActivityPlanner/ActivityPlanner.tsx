@@ -61,7 +61,7 @@ function ActivityPlanner() {
           />
         </div>
       </div>
-      <div className="flex pt-2">
+      <div className="flex mt-2 sm:mt-4">
         <ActionButton
           type="submit"
           text="저장"
