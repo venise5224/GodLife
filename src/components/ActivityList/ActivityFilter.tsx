@@ -7,12 +7,12 @@ interface Props {
 
 const FilterToggle = ({ filter, onChange }: Props) => {
   return (
-    <div className="flex gap-2 mb-4">
+    <div className="flex gap-2">
       {(["All", "Todo", "Plan", "Log"] as const).map((f) => (
         <button
           key={f}
           onClick={() => onChange(f)}
-          className={`px-3 py-1 rounded-full border text-sm transition
+          className={`px-3 py-1 rounded-full border text-xs sm:text-sm transition
             ${
               filter === f
                 ? "bg-blue-500 text-white border-blue-500"

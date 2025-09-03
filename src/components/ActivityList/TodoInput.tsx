@@ -22,12 +22,12 @@ const TodoInput = ({ onAdd }: Props) => {
         type="text"
         value={todoName}
         onChange={(e) => setTodoName(e.target.value)}
-        className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+        className="flex-1 p-2 border rounded-lg text-xs sm:text-base focus:outline-none focus:ring focus:ring-blue-300"
         placeholder="할 일을 입력하세요 (Todo)"
       />
       <button
         type="submit"
-        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+        className="px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-base bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
       >
         추가
       </button>

@@ -16,7 +16,7 @@ const ActivityList = () => {
   const [filter, setFilter] = useState<"All" | "Todo" | "Plan" | "Log">("All");
   const { removeActivity } = useActivityStore();
   const { todos, addTodo, removeTodo } = useTodoStore();
-  const activityList = useTodayActivities(); // 오늘의 활동들
+  const activityList = useTodayActivities();
 
   const rows: Row[] = useMemo(() => {
     const todoRows: Row[] = todos.map((t) => ({
