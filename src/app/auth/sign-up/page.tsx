@@ -52,7 +52,10 @@ const SignUpPage = () => {
         </Link>
       </p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-2">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="mt-4 space-y-1 sm:space-y-2"
+      >
         <FormInput
           id="email"
           label="이메일"
