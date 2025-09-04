@@ -20,11 +20,11 @@ export default function ActivityStatItem({
       : { colorDay: "blue-500", colorTotal: "green-500" };
 
   return (
-    <div className="p-3 border rounded-xl shadow-sm bg-white space-y-1">
+    <div className="p-2 sm:p-3 border rounded-xl shadow-sm bg-white space-y-1">
       {/* 이름 + 시간 */}
       <div className="flex justify-between items-center">
-        <span className="font-semibold">{row.name}</span>
-        <span className="text-sm text-gray-500">
+        <span className="text-sm sm:text-base font-semibold">{row.name}</span>
+        <span className="text-xs sm:text-sm text-gray-500">
           {Math.floor(row.minutes / 60)}시간 {row.minutes % 60}분
         </span>
       </div>

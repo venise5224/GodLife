@@ -35,36 +35,42 @@ export default function PlanVsLogStats() {
     <div className="space-y-4">
       <PlanVsLogStatsHeader />
 
-      {grouped.map((row) => (
-        <div
-          key={row.name}
-          className="p-3 border rounded-xl shadow-sm bg-white space-y-1"
-        >
-          {/* 첫 줄: 이름 | 계획시간 / 실제시간 | 달성률 % */}
-          <div className="grid grid-cols-3 mb-1 text-sm">
-            <span className="text-left font-semibold">{row.name}</span>
-            <span className="text-center">
-              {Math.floor(row.planMinutes / 60)}h {row.planMinutes % 60}m /{" "}
-              {Math.floor(row.logMinutes / 60)}h {row.logMinutes % 60}m
-            </span>
-            <span
-              className={`text-right font-medium ${getBarColor(
-                row.percentOfPlan
-              ).replace("bg-", "text-")}`}
-            >
-              {row.percentOfPlan.toFixed(1)}%
-            </span>
-          </div>
+      {grouped.length > 0 ? (
+        grouped.map((row) => (
+          <div
+            key={row.name}
+            className="p-3 border rounded-xl text-xs sm:text-sm shadow-sm bg-white space-y-1"
+          >
+            {/* 첫 줄: 이름 | 계획시간 / 실제시간 | 달성률 % */}
+            <div className="grid grid-cols-3 mb-1 text-sm">
+              <span className="text-xs sm:text-sm text-left font-semibold">
+                {row.name}
+              </span>
+              <span className="text-xs sm:text-sm text-center">
+                {Math.floor(row.planMinutes / 60)}h {row.planMinutes % 60}m /{" "}
+                {Math.floor(row.logMinutes / 60)}h {row.logMinutes % 60}m
+              </span>
+              <span
+                className={`text-xs sm:text-sm text-right font-medium ${getBarColor(
+                  row.percentOfPlan
+                ).replace("bg-", "text-")}`}
+              >
+                {row.percentOfPlan.toFixed(1)}%
+              </span>
+            </div>
 
-          {/* 둘째 줄: 진행 바 */}
-          <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              className={`h-3 ${getBarColor(row.percentOfPlan)}`}
-              style={{ width: `${Math.min(row.percentOfPlan, 100)}%` }}
-            />
+            {/* 둘째 줄: 진행 바 */}
+            <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                className={`h-3 ${getBarColor(row.percentOfPlan)}`}
+                style={{ width: `${Math.min(row.percentOfPlan, 100)}%` }}
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        <p className="text-center text-gray-500">활동 계획이 없습니다.</p>
+      )}
     </div>
   );
 }
