@@ -22,7 +22,7 @@ const Stats = () => {
         {tabs.map((tab) => (
           <button
             key={tab.key}
-            className={`flex-1 p-2 rounded-t-lg font-medium cursor-pointer ${
+            className={`flex-1 p-2 text-sm sm:text-base rounded-t-lg sm:font-medium cursor-pointer ${
               activeTab === tab.key
                 ? "bg-white border-2 border-b-0"
                 : "bg-gray-200 text-gray-700 border-b-2"
@@ -35,7 +35,7 @@ const Stats = () => {
       </div>
 
       {/* 탭 컨텐츠 */}
-      <div className="border-2 border-t-0 rounded-b-2xl p-4 h-[500px] sm:h-[740px] overflow-y-auto">
+      <div className="border-2 border-t-0 rounded-b-2xl p-4 h-[540px] sm:h-[740px] overflow-y-auto">
         {activeTab === "plan" && <ActivityStats source="plan" />}
         {activeTab === "log" && <ActivityStats source="log" />}
         {activeTab === "planVsLog" && <PlanVsLogStats />}
