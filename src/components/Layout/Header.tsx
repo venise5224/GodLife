@@ -23,7 +23,7 @@ function Header() {
       <h1 className="relative text-xl font-bold">
         <Link href="/" className="block  w-40 h-16 sm:w-48 sm:h-20">
           <Image
-            src="/icons/logo.png"
+            src="/icons/Logo.png"
             alt="Logo"
             fill
             className="object-contain"
