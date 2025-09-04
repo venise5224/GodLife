@@ -18,7 +18,7 @@ function ActivityRender() {
       <div className="block md:hidden">
         <div className="flex border-b border-gray-300 mb-2">
           <button
-            className={`flex-1 p-2 text-center font-semibold ${
+            className={`flex-1 p-2 text-center font-semibold cursor-pointer ${
               activeTab === "timeline"
                 ? "border-b-2 border-blue-500 text-blue-500"
                 : "text-gray-500"
@@ -28,7 +28,7 @@ function ActivityRender() {
             타임라인
           </button>
           <button
-            className={`flex-1 p-2 text-center font-semibold ${
+            className={`flex-1 p-2 text-center font-semibold cursor-pointer ${
               activeTab === "list"
                 ? "border-b-2 border-blue-500 text-blue-500"
                 : "text-gray-500"

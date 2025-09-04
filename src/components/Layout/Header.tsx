@@ -49,7 +49,7 @@ function Header() {
         ) : (
           <button
             onClick={() => router.push("/auth/sign-in")}
-            className="px-3 py-1 text-xs sm:text-base font-bold bg-blue-500 text-white border-black border-2 rounded-lg shadow-[3px_3px_0px_rgba(0,0,0,1)]"
+            className="px-3 py-1 text-xs sm:text-base font-bold bg-blue-500 text-white border-black border-2 rounded-lg shadow-[3px_3px_0px_rgba(0,0,0,1)] cursor-pointer"
           >
             로그인
           </button>

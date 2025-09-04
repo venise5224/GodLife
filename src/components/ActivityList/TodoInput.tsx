@@ -27,7 +27,7 @@ const TodoInput = ({ onAdd }: Props) => {
       />
       <button
         type="submit"
-        className="px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-base bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+        className="px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-base bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition cursor-pointer"
       >
         추가
       </button>

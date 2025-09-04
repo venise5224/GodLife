@@ -12,7 +12,7 @@ const FilterToggle = ({ filter, onChange }: Props) => {
         <button
           key={f}
           onClick={() => onChange(f)}
-          className={`px-3 py-1 rounded-full border text-xs sm:text-sm transition
+          className={`px-3 py-1 rounded-full border text-xs sm:text-sm transition cursor-pointer
             ${
               filter === f
                 ? "bg-blue-500 text-white border-blue-500"

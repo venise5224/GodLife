@@ -53,7 +53,7 @@ const RowItem = ({ row }: Props) => {
         {!(row.kind === "activity" && !row.end) ? (
           <button
             onClick={row.onDelete}
-            className="text-red-500 hover:text-red-700"
+            className="text-red-500 hover:text-red-700 cursor-pointer"
             aria-label="삭제"
             title="삭제"
           >
