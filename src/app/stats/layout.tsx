@@ -11,5 +11,5 @@ export default function StatsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <div className="max-w-3xl mx-auto p-4 bg-white">{children}</div>;
 }

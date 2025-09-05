@@ -16,7 +16,7 @@ const Stats = () => {
   ] as const;
 
   return (
-    <div className="max-w-3xl mx-auto p-4">
+    <>
       {/* 탭 버튼 */}
       <div className="flex">
         {tabs.map((tab) => (
@@ -40,7 +40,7 @@ const Stats = () => {
         {activeTab === "log" && <ActivityStats source="log" />}
         {activeTab === "planVsLog" && <PlanVsLogStats />}
       </div>
-    </div>
+    </>
   );
 };
 
