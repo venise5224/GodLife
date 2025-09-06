@@ -8,9 +8,9 @@ function ActivityRender() {
   const [activeTab, setActiveTab] = useState<"timeline" | "list">("timeline");
 
   return (
-    <div className="w-full">
+    <>
       {/* md 이상에서는 CircularTimeline만 */}
-      <div className="hidden md:block md:h-[820px]">
+      <div className="hidden md:block h-full">
         <CircularTimeline />
       </div>
 
@@ -49,7 +49,7 @@ function ActivityRender() {
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

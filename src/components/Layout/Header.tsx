@@ -19,7 +19,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 w-full px-4 py-1 sm:px-10 bg-white shadow flex justify-between items-center">
+    <header className="px-4 py-1 sm:px-10 bg-white shadow flex justify-between items-center">
       <h1 className="relative text-xl font-bold">
         <Link href="/" className="block  w-40 h-16 sm:w-48 sm:h-20">
           <Image
