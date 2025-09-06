@@ -44,7 +44,7 @@ const CircularTimeline = () => {
   }
 
   return (
-    <svg className="w-full h-full" viewBox={`0 0 ${SIZE} ${SIZE}`}>
+    <svg className="h-full w-full" viewBox={`0 0 ${SIZE} ${SIZE}`}>
       {/* 배경 원 */}
       <circle
         cx={cx}
