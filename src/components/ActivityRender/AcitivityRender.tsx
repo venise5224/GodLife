@@ -15,7 +15,7 @@ function ActivityRender() {
       </div>
 
       {/* md 이하에서는 탭 UI */}
-      <div className="block md:hidden h-full w-full">
+      <div className="flex flex-col md:hidden h-full w-full">
         <div className="flex border-b border-gray-300">
           <button
             className={`flex-1 p-2 text-center font-semibold cursor-pointer ${
@@ -39,11 +39,11 @@ function ActivityRender() {
           </button>
         </div>
 
-        <div className="mt-2">
+        <div className="mt-2 flex flex-col flex-1">
           {activeTab === "timeline" ? (
             <CircularTimeline />
           ) : (
-            <div className="px-4">
+            <div className="px-2 h-full">
               <ActivityList />
             </div>
           )}

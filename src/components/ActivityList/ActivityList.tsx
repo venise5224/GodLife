@@ -96,7 +96,7 @@ const ActivityList = () => {
   }, [todos, activityList, filter, removeActivity, removeTodo]);
 
   return (
-    <div className="w-full mx-auto p-4 bg-white shadow-lg border-2 rounded-2xl h-full overflow-y-auto">
+    <div className="w-full mx-auto p-2 bg-white shadow-lg border-2 rounded-2xl h-full overflow-y-auto">
       <h2 className="hidden md:block text-xl font-bold mb-4">
         할 일 / 활동 목록
       </h2>
