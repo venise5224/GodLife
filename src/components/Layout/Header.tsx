@@ -20,13 +20,15 @@ function Header() {
 
   return (
     <header className="px-4 py-1 sm:px-10 bg-white shadow flex justify-between items-center">
-      <h1 className="relative text-xl font-bold">
-        <Link href="/" className="block  w-40 h-16 sm:w-48 sm:h-20">
+      <h1 className="text-xl font-bold">
+        <Link href="/" className="block ">
           <Image
             src="/icons/Logo.png"
             alt="Logo"
-            fill
-            className="object-contain"
+            width={192}
+            height={80}
+            className="object-contain w-40 h-16 sm:w-48 sm:h-20"
+            priority
           />
         </Link>
       </h1>
