@@ -4,7 +4,7 @@ import ActivityRender from "@/components/ActivityRender/AcitivityRender";
 
 function HomePage() {
   return (
-    <div className="flex flex-col md:flex-row h-[calc(100vh-88px-58px)]">
+    <div className="flex flex-col md:flex-row h-full">
       <section className="md:w-1/2 flex items-center justify-center">
         <ActivityRender />
       </section>

@@ -35,7 +35,7 @@ const Stats = () => {
       </div>
 
       {/* 탭 컨텐츠 */}
-      <div className="border-2 border-t-0 rounded-b-2xl p-4 h-[540px] sm:h-[740px] overflow-y-auto">
+      <div className="flex flex-col border-2 border-t-0 rounded-b-2xl p-4 h-full overflow-y-auto">
         {activeTab === "plan" && <ActivityStats source="plan" />}
         {activeTab === "log" && <ActivityStats source="log" />}
         {activeTab === "planVsLog" && <PlanVsLogStats />}

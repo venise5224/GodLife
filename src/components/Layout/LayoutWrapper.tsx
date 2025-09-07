@@ -15,7 +15,7 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   return (
     <>
       {!hideLayout && <Header />}
-      <main className="flex-grow">{children}</main>
+      <main className="h-[calc(100vh-var(--hh)-var(--fh))]">{children}</main>
       {!hideLayout && <Footer />}
     </>
   );
