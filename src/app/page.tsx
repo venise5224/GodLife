@@ -4,18 +4,18 @@ import ActivityRender from "@/components/ActivityRender/AcitivityRender";
 
 function HomePage() {
   return (
-    <main className="flex flex-col md:flex-row">
-      <section className="md:w-1/2">
+    <div className="flex flex-col md:flex-row h-full overflow-auto">
+      <section className="h-full md:w-1/2 flex items-center justify-center">
         <ActivityRender />
       </section>
 
       <section className="md:w-1/2 flex flex-col gap-4 p-4">
-        <div className="hidden md:block">
+        <div className="hidden md:block flex-grow">
           <ActivityList />
         </div>
         <ActivityBoard />
       </section>
-    </main>
+    </div>
   );
 }
 

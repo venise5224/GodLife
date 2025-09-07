@@ -8,15 +8,15 @@ function ActivityRender() {
   const [activeTab, setActiveTab] = useState<"timeline" | "list">("timeline");
 
   return (
-    <div className="w-full">
+    <>
       {/* md 이상에서는 CircularTimeline만 */}
-      <div className="hidden md:block md:h-[820px]">
+      <div className="hidden md:block h-full w-full">
         <CircularTimeline />
       </div>
 
       {/* md 이하에서는 탭 UI */}
-      <div className="block md:hidden">
-        <div className="flex border-b border-gray-300 mb-2">
+      <div className="flex flex-col md:hidden h-full w-full">
+        <div className="flex border-b border-gray-300">
           <button
             className={`flex-1 p-2 text-center font-semibold cursor-pointer ${
               activeTab === "timeline"
@@ -39,17 +39,17 @@ function ActivityRender() {
           </button>
         </div>
 
-        <div className="mt-2">
+        <div className="mt-2 flex flex-col flex-1">
           {activeTab === "timeline" ? (
             <CircularTimeline />
           ) : (
-            <div className="px-4">
+            <div className="px-2 h-full">
               <ActivityList />
             </div>
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
