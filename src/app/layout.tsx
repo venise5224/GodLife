@@ -16,6 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="rdIHUdbDhKQftI_nFWPKNeR_uBCYFWLvTMNxxTiRHt8"
+        />
+      </head>
       <body className="flex flex-col min-h-screen">
         <LayoutWrapper>{children}</LayoutWrapper>
         <ModalManager />
