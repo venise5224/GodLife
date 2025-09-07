@@ -10,13 +10,13 @@ function ActivityRender() {
   return (
     <>
       {/* md 이상에서는 CircularTimeline만 */}
-      <div className="hidden md:block h-full">
+      <div className="hidden md:block h-full w-full">
         <CircularTimeline />
       </div>
 
       {/* md 이하에서는 탭 UI */}
-      <div className="block md:hidden">
-        <div className="flex border-b border-gray-300 mb-2">
+      <div className="block md:hidden h-full w-full">
+        <div className="flex border-b border-gray-300">
           <button
             className={`flex-1 p-2 text-center font-semibold cursor-pointer ${
               activeTab === "timeline"
