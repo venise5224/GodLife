@@ -21,6 +21,10 @@ export default function RootLayout({
           name="google-site-verification"
           content="rdIHUdbDhKQftI_nFWPKNeR_uBCYFWLvTMNxxTiRHt8"
         />
+        <meta
+          name="naver-site-verification"
+          content="b631cc077b434b3838843dfa845da8e64c13d520"
+        />
       </head>
       <body className="flex flex-col min-h-screen">
         <LayoutWrapper>{children}</LayoutWrapper>
