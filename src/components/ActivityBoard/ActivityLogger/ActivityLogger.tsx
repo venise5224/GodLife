@@ -53,7 +53,7 @@ const ActivityLogger = () => {
   };
 
   return (
-    <div className="w-full bg-white rounded-2xl space-y-2">
+    <div className="w-full rounded-2xl space-y-2">
       {/* 디스플레이 영역 */}
       <div className="bg-gray-800 p-2 sm:p-4 rounded-xl text-center text-lg h-[69px] sm:h-[112px]">
         {runningActivity ? (

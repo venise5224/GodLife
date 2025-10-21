@@ -14,7 +14,7 @@ const ActivityBoard = () => {
         <button
           className={`flex-1 p-1 sm:p-2 text-sm sm:text-base rounded-t-lg cursor-pointer ${
             activeTab === "logger"
-              ? "bg-white border-2 border-b-0"
+              ? " border-2 border-b-0"
               : "bg-gray-200 text-gray-700 border-b-2"
           }`}
           onClick={() => setActiveTab("logger")}
@@ -24,7 +24,7 @@ const ActivityBoard = () => {
         <button
           className={`flex-1 p-1 sm:p-2 text-sm sm:text-base rounded-t-lg cursor-pointer ${
             activeTab === "planner"
-              ? "bg-white border-2 border-b-0"
+              ? " border-2 border-b-0"
               : "bg-gray-200 text-gray-700 border-b-2"
           }`}
           onClick={() => setActiveTab("planner")}

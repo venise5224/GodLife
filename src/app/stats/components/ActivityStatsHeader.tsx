@@ -27,13 +27,13 @@ export default function ActivityStatsHeader({
           color: "bg-blue-500",
         };
   return (
-    <div className="p-2 sm:p-4 bg-gray-50 rounded-xl border space-y-2">
+    <div className="p-2 sm:p-4 rounded-xl border space-y-2">
       <div className="flex items-center space-x-2">
         {config.icon}
         <h2 className="text-sm sm:text-lg font-bold">{config.title}</h2>
       </div>
       <p className="text-xs sm:text-sm text-gray-500">{config.description}</p>
-      <div className="text-xs sm:text-base text-gray-700 font-medium">
+      <div className="text-xs sm:text-base font-medium">
         총 {config.label}: {Math.floor(totalMinutes / 60)}시간{" "}
         {totalMinutes % 60}분
       </div>
