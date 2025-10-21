@@ -39,7 +39,7 @@ export default function PlanVsLogStats() {
         grouped.map((row) => (
           <div
             key={row.name}
-            className="p-3 border rounded-xl text-xs sm:text-sm shadow-sm bg-white space-y-1"
+            className="p-3 border rounded-xl text-xs sm:text-sm shadow-sm  space-y-1"
           >
             {/* 첫 줄: 이름 | 계획시간 / 실제시간 | 달성률 % */}
             <div className="grid grid-cols-3 mb-1 text-sm">

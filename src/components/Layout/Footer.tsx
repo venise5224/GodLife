@@ -21,7 +21,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="p-4 border-t-2 bg-white shadow flex justify-around">
+    <footer className="p-4 border-t-2 shadow flex justify-around">
       {navMenu.map((item) => (
         <Link
           key={item.name}

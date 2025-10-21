@@ -10,7 +10,7 @@ export default function PlanVsLogStatsHeader() {
   };
 
   return (
-    <div className="p-2 sm:p-4 bg-gray-50 rounded-xl border space-y-2">
+    <div className="p-2 sm:p-4 rounded-xl border space-y-2">
       <div className="flex items-center space-x-2">
         {config.icon}
         <h2 className="text-sm sm:text-lg font-bold">{config.title}</h2>
@@ -18,7 +18,7 @@ export default function PlanVsLogStatsHeader() {
       <p className="text-[10px] sm:text-sm text-gray-500">
         {config.description}
       </p>
-      <div className="grid grid-cols-3 text-[10px] sm:text-base text-gray-700 font-medium">
+      <div className="grid grid-cols-3 text-[10px] sm:text-base font-medium">
         <span className="text-left">이름</span>
         <span className="text-center">계획 시간 / 기록 시간</span>
         <span className="text-right">달성률</span>

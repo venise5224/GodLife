@@ -24,7 +24,7 @@ const Stats = () => {
             key={tab.key}
             className={`flex-1 p-2 text-sm sm:text-base rounded-t-lg sm:font-medium cursor-pointer ${
               activeTab === tab.key
-                ? "bg-white border-2 border-b-0"
+                ? "border-2 border-b-0"
                 : "bg-gray-200 text-gray-700 border-b-2"
             }`}
             onClick={() => setActiveTab(tab.key)}

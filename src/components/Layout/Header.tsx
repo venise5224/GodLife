@@ -19,7 +19,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="px-4 py-1 sm:px-10 bg-white shadow flex justify-between items-center">
+    <header className="px-4 py-1 sm:px-10 shadow flex justify-between items-center">
       <h1 className="text-xl font-bold">
         <Link href="/" className="block ">
           <Image
@@ -35,7 +35,7 @@ function Header() {
 
       <div className="flex items-center gap-3">
         {/* 현재 날짜 */}
-        <span className="sm:block text-xs sm:text-base font-bold text-black border-2 px-3 py-1 rounded-lg shadow-[3px_3px_0px_rgba(0,0,0,1)]">
+        <span className="sm:block text-xs sm:text-base font-bold border-2 px-3 py-1 rounded-lg shadow-[3px_3px_0px_rgba(0,0,0,1)]">
           {new Date().toLocaleDateString()}
         </span>
 
