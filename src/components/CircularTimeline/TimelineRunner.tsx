@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import running from "../../../public/lottie/running.json";
+import whiteRunning from "../../../public/lottie/running-white.json";
 import { polarToCartesian } from "@/utils/timeLine";
 
 interface TimelineRunnerProps {
@@ -12,13 +13,15 @@ interface TimelineRunnerProps {
   r: number;
 }
 
-export default function TimelineRunner({
-  currentMinutes,
-  cx,
-  cy,
-  r,
-}: TimelineRunnerProps) {
+const TimelineRunner = ({ currentMinutes, cx, cy, r }: TimelineRunnerProps) => {
   const runnerPosition = polarToCartesian(cx, cy, currentMinutes, r + 15);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // 클라이언트에서 localStorage 접근
+    const theme = localStorage.getItem("theme");
+    setIsDark(theme === "dark");
+  }, []);
 
   return (
     <g
@@ -33,8 +36,10 @@ export default function TimelineRunner({
         width={60}
         height={60}
       >
-        <Lottie animationData={running} loop />
+        <Lottie animationData={isDark ? whiteRunning : running} loop />
       </foreignObject>
     </g>
   );
-}
+};
+
+export default TimelineRunner;

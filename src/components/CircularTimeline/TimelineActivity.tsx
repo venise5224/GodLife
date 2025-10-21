@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { parseTime } from "@/utils/parseTime";
 import { describeArc, polarToCartesian } from "@/utils/timeLine";
 import { Activity } from "@/types/Activity";
@@ -24,6 +24,16 @@ export default function TimelineActivity({
   onHover,
   currentMinutes,
 }: TimelineActivityProps) {
+  const [isDark, setIsDark] = useState<null | boolean>(null);
+
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    setIsDark(theme === "dark");
+  }, []);
+
+  // 초기 로딩 시 깜빡임 방지
+  if (isDark === null) return null;
+
   const start = parseTime(activity.startTime);
   const end =
     activity.source === "log" && !activity.endTime && currentMinutes !== null
@@ -38,8 +48,8 @@ export default function TimelineActivity({
 
   const fillColor =
     activity.source === "plan"
-      ? "rgba(234, 179, 8, 1)"
-      : "rgba(34, 197, 94, 1)";
+      ? "rgba(234, 179, 8, 1)" // yellow-500
+      : "rgba(34, 197, 94, 1)"; // green-500
 
   const strokeDasharray =
     activity.source === "log" && !activity.endTime ? "4 4" : undefined;
@@ -73,7 +83,7 @@ export default function TimelineActivity({
           y={textPos.y - textHeight / 2}
           width={textLength + 4}
           height={textHeight}
-          fill="rgba(255,255,255,0.8)"
+          fill={isDark ? "rgba(30,30,30,0.8)" : "rgba(255,255,255,0.8)"}
           rx={2}
         />
       )}
@@ -85,7 +95,7 @@ export default function TimelineActivity({
         textAnchor="middle"
         alignmentBaseline="middle"
         fontSize="12"
-        fill="#333"
+        fill={isDark ? "#f9fafb" : "#333"}
       >
         {activity.activityName}
       </text>
