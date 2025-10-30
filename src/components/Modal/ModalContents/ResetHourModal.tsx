@@ -21,8 +21,12 @@ const ResetHourModal = () => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
       <div className="bg-white p-6 rounded-xl w-[350px]">
-        <h2 className="text-lg font-bold text-center">초기화 시간 설정</h2>
-        <p className="text-sm mt-4">선택하신 초기화 시간: {selectedHour}시</p>
+        <h2 className="text-gray-900 text-lg font-bold text-center">
+          초기화 시간 설정
+        </h2>
+        <p className="text-gray-900 text-sm mt-4">
+          선택하신 초기화 시간: {selectedHour}시
+        </p>
         <p className="text-sm text-gray-600 mt-4">
           {willResetToday ? (
             <span>
