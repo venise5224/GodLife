@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import ModalManager from "@/components/Modal/ModalManager";
 import LayoutWrapper from "@/components/Layout/LayoutWrapper";
+import ServiceWorkerRegister from "@/common/ServiceWorkerRegister";
 
 export const metadata: Metadata = {
   title: "GodLife",
@@ -25,10 +26,12 @@ export default function RootLayout({
           name="naver-site-verification"
           content="b631cc077b434b3838843dfa845da8e64c13d520"
         />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="flex flex-col min-h-screen">
         <LayoutWrapper>{children}</LayoutWrapper>
         <ModalManager />
+        <ServiceWorkerRegister />
       </body>
     </html>
   );
